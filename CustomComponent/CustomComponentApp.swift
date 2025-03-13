@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct CustomComponentApp: App {
+    @StateObject var favorites = FavoritesManager()  // Holds favorite recipes
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .environmentObject(favorites)
         }
     }
 }
